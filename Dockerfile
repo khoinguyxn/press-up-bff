@@ -5,6 +5,10 @@ EXPOSE 8080
 EXPOSE 8081
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+
+RUN apt update
+RUN apt install -y clang zlib1g-dev
+
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["PressUpApi/PressUpApi.csproj", "PressUpApi/"]
