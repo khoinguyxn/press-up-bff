@@ -24,4 +24,4 @@ RUN dotnet publish "./PressUpApi.csproj" -c $BUILD_CONFIGURATION -o /app/publish
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "PressUpApi.dll"]
+ENTRYPOINT ["./PressUpApi"]
